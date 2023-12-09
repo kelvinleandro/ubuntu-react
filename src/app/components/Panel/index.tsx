@@ -2,12 +2,14 @@
 import React from 'react'
 import Clock from '../Clock'
 import { PanelWrapper } from './index.style'
+import PanelIcons from '../PanelIcons'
+
 const Panel = () => {
   return (
     <PanelWrapper>
       <p>Activities</p>
-      <Clock/>
-      <p>Other text</p>
+      <Clock />
+      <PanelIcons />
     </PanelWrapper>
   )
 }
