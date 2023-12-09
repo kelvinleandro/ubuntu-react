@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Panel/>
-        <main className='relative'>
+        <main className='relative h-[95vh]'>
           <Dock />
           {children}
         </main>

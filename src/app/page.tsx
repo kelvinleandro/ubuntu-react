@@ -1,9 +1,10 @@
 import Image from 'next/image'
+import background from '../../public/22_04.jpg'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello world;
-    </main>
+    <div className="w-full absolute bottom-0 left-0 -z-20">
+      <Image src={background} alt='Ubuntu background image' className='object-cover'/>
+    </div>
   )
 }
