@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import Panel from './components/Panel'
+import Dock from './components/Dock'
 
 export const metadata: Metadata = {
   title: 'Ubuntu React',
@@ -16,7 +17,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Panel/>
-        {children}
+        <main className='relative'>
+          <Dock />
+          {children}
+        </main>
       </body>
     </html>
   )
