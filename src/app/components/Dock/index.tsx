@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import {dockIcons} from '../../../../public/data'
+import {dockIcons} from '@public/data'
 import Image from 'next/image'
 import { DockWrapper } from './index.style'
 

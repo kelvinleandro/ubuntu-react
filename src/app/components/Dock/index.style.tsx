@@ -24,5 +24,6 @@ export const DockWrapper = styled.aside`
   & .dock-icon:last-child {
     position: absolute;
     bottom: 0;
+    filter: brightness(0) invert(1)
   }
 `

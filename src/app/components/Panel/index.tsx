@@ -1,13 +1,23 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import Clock from '../Clock'
 import { PanelWrapper } from './index.style'
 import PanelIcons from '../PanelIcons'
+import { useRouter } from 'next/navigation'
 
 const Panel = () => {
+  const router = useRouter();
+  const [onActivities, setOnActivities] = useState(false);
+
+  const handleActivities = () => {
+    const path = !onActivities ? '/activities' : '/';
+    router.push(path);
+    setOnActivities(!onActivities);
+  }
+
   return (
     <PanelWrapper>
-      <p>Activities</p>
+      <p onClick={handleActivities}>Activities</p>
       <Clock />
       <PanelIcons />
     </PanelWrapper>

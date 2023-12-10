@@ -1,5 +1,5 @@
 import React from 'react'
-import {panelIcons} from '../../../../public/data'
+import {panelIcons} from '@public/data'
 import Image from 'next/image'
 
 const PanelIcons = () => {
