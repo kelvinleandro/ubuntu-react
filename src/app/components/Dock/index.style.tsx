@@ -13,11 +13,16 @@ export const DockWrapper = styled.aside`
 
   & .dock-icon {
     padding: 0.25rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.30rem;
     border-radius: 5px;
   }
   
   & .dock-icon:hover {
     background-color: #2f242b;
+  }
+
+  & .dock-icon:last-child {
+    position: absolute;
+    bottom: 0;
   }
 `
