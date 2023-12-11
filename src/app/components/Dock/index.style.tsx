@@ -10,22 +10,6 @@ export const DockWrapper = styled.aside`
   display: flex;
   flex-direction: column;
   padding: 0.25rem 0.50rem;
-
-  /* & .dock-icon {
-    padding: 0.25rem;
-    margin-bottom: 0.30rem;
-    border-radius: 5px;
-  }
-  
-  & .dock-icon:hover {
-    background-color: #2f242b;
-  }
-
-  & .dock-icon:last-child {
-    position: absolute;
-    bottom: 0;
-    filter: brightness(0) invert(1)
-  } */
 `
 
 export const DockItem = styled.div`
@@ -40,6 +24,5 @@ export const DockItem = styled.div`
   &:last-child {
     position: absolute;
     bottom: 0;
-    /* filter: brightness(0) invert(1); */
   }
 `
