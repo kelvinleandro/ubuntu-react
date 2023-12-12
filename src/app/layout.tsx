@@ -1,16 +1,10 @@
 "use client"
-// import type { Metadata } from 'next'
 import '@/globals.css'
 import Panel from '@components/Panel'
 import Dock from '@components/Dock'
 import { useState } from 'react'
 import ControlPanel from '@components/ControlPanel'
 import NotificationCenter from '@components/NotificationCenter'
-
-// export const metadata: Metadata = {
-//   title: 'Ubuntu React',
-//   description: 'Ubuntu home recreated with React',
-// }
 
 export default function RootLayout({
   children,
