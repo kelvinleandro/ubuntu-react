@@ -5,10 +5,10 @@ import {status} from '@public/data'
 import Image from 'next/image'
 
 const ControlPanel = () => {
-  const [value, setValue] = useState(25);
+  const [value, setValue] = useState<number>(25);
 
-  const handleChange = (event, value) => {
-    setValue(value);
+  const handleChange = (event: Event, value: number | number[]) => {
+    setValue(value as number);
   };
 
   const statusOptions = status.map((icon, index) => (
