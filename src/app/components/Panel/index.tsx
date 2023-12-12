@@ -4,8 +4,9 @@ import Clock from '../Clock'
 import { PanelWrapper } from './index.style'
 import PanelIcons from '../PanelIcons'
 import { useRouter } from 'next/navigation'
+import { PanelProps } from '@public/types'
 
-const Panel = ({controlState, setControlState, notificationState, setNotificationState}) => {
+const Panel = ({ handleNotificationVisibility, handleControlVisibility }: PanelProps) => {
   const router = useRouter();
   const [onActivities, setOnActivities] = useState(false);
 
@@ -18,8 +19,8 @@ const Panel = ({controlState, setControlState, notificationState, setNotificatio
   return (
     <PanelWrapper>
       <p onClick={handleActivities}>Activities</p>
-      <Clock notificationState={notificationState} setNotificationState={setNotificationState} />
-      <PanelIcons controlState={controlState} setControlState={setControlState} />
+      <Clock handleNotificationVisibility={handleNotificationVisibility} />
+      <PanelIcons handleControlVisibility={handleControlVisibility} />
     </PanelWrapper>
   )
 }

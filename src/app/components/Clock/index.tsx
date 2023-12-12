@@ -1,7 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import { HandleFunction } from '@public/types';
 
-const Clock = ({notificationState, setNotificationState}) => {
+const Clock = ({ handleNotificationVisibility }: { handleNotificationVisibility: HandleFunction }) => {
   const [dateTime, setDateTime] = useState("mon 0 00:00");
 
   function getDateTime(): string {
@@ -21,7 +22,7 @@ const Clock = ({notificationState, setNotificationState}) => {
   }, []);
   
   return (
-    <p onClick={() => setNotificationState(!notificationState)}>{dateTime}</p>
+    <p onClick={handleNotificationVisibility}>{dateTime}</p>
   )
 }
 

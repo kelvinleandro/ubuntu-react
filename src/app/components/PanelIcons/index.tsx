@@ -1,10 +1,11 @@
 import React  from 'react'
 import {panelIcons} from '@public/data'
 import Image from 'next/image'
+import { HandleFunction } from '@public/types'
 
-const PanelIcons = ({controlState, setControlState}) => {
+const PanelIcons = ({ handleControlVisibility }: { handleControlVisibility: HandleFunction }) => {
   return (
-    <div className='flex gap-1' onClick={() => setControlState(!controlState)}>
+    <div className='flex gap-1' onClick={handleControlVisibility}>
       {panelIcons.map((icon, index) => {
         return <Image 
           src={icon.img} 

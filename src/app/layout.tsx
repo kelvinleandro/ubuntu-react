@@ -5,6 +5,7 @@ import Dock from '@components/Dock'
 import { useState } from 'react'
 import ControlPanel from '@components/ControlPanel'
 import NotificationCenter from '@components/NotificationCenter'
+import { HandleFunction } from '@public/types'
 
 export default function RootLayout({
   children,
@@ -15,17 +16,23 @@ export default function RootLayout({
   const [isControlVisible, setIsControlVisible] = useState(false);
   const [isNotificationVisible, setIsNotificationVisible] = useState(false);
 
+  const handleControlPanel:HandleFunction = () => {
+    setIsControlVisible(!isControlVisible)
+  }
+  
+  const handleNotificationCenter:HandleFunction = () => {
+    setIsNotificationVisible(!isNotificationVisible)
+  }
+
   return (
     <html lang="en">
       <head>
         <title>Ubuntu React</title>
       </head>
       <body>
-        <Panel 
-          controlState={isControlVisible} 
-          setControlState={setIsControlVisible}
-          notificationState={isNotificationVisible}
-          setNotificationState={setIsNotificationVisible} 
+        <Panel
+          handleControlVisibility={handleControlPanel}
+          handleNotificationVisibility={handleNotificationCenter}
         />
         <main className='relative h-[95vh] w-screen'>
           <Dock />
