@@ -5,7 +5,7 @@ import { PanelWrapper } from './index.style'
 import PanelIcons from '../PanelIcons'
 import { useRouter } from 'next/navigation'
 
-const Panel = ({controlState, setControlState}) => {
+const Panel = ({controlState, setControlState, notificationState, setNotificationState}) => {
   const router = useRouter();
   const [onActivities, setOnActivities] = useState(false);
 
@@ -18,7 +18,7 @@ const Panel = ({controlState, setControlState}) => {
   return (
     <PanelWrapper>
       <p onClick={handleActivities}>Activities</p>
-      <Clock />
+      <Clock notificationState={notificationState} setNotificationState={setNotificationState} />
       <PanelIcons controlState={controlState} setControlState={setControlState} />
     </PanelWrapper>
   )

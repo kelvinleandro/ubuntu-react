@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 
-const Clock = () => {
+const Clock = ({notificationState, setNotificationState}) => {
   const [dateTime, setDateTime] = useState("mon 0 00:00");
 
   function getDateTime(): string {
@@ -21,7 +21,7 @@ const Clock = () => {
   }, []);
   
   return (
-    <p>{dateTime}</p>
+    <p onClick={() => setNotificationState(!notificationState)}>{dateTime}</p>
   )
 }
 

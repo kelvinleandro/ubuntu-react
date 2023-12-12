@@ -19,7 +19,7 @@ const ControlPanel = () => {
   ))
   
   return (
-    <div className='rounded-xl absolute z-20 top-0 right-0 bg-white w-[25%] px-4 py-1 flex flex-col gap-1'>
+    <div className='rounded-xl absolute z-20 top-0 right-2 bg-white w-[25%] px-4 py-2 flex flex-col gap-1'>
       <Stack spacing={2} direction="row" alignItems="center">
         {value > 50 ? <VolumeUp /> : <VolumeDown />}
         <Slider aria-label="Volume" defaultValue={25} value={value} onChange={handleChange} sx={{
@@ -28,7 +28,7 @@ const ControlPanel = () => {
             backgroundColor: "#fff",
             border: "1px solid #aeaeae",
             "&:hover, &.Mui-focusVisible": {
-              boxShadow: '0px 0px 0px 0px'
+              boxShadow: 'none'
             },
           },
           "& .MuiSlider-rail": {
