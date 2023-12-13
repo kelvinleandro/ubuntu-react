@@ -13,15 +13,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-  const [isControlVisible, setIsControlVisible] = useState(false);
-  const [isNotificationVisible, setIsNotificationVisible] = useState(false);
+  const [isControlVisible, setIsControlVisible] = useState<boolean>(false);
+  const [isNotificationVisible, setIsNotificationVisible] = useState<boolean>(false);
 
   const handleControlPanel:HandleFunction = () => {
     setIsControlVisible(!isControlVisible)
+    setIsNotificationVisible(false)
   }
   
   const handleNotificationCenter:HandleFunction = () => {
     setIsNotificationVisible(!isNotificationVisible)
+    setIsControlVisible(false)
   }
 
   return (
@@ -37,8 +39,8 @@ export default function RootLayout({
         <main className='relative h-[95vh] w-screen'>
           <Dock />
           {children}
-          {isControlVisible && !isNotificationVisible ? <ControlPanel />: null}
-          {isNotificationVisible && !isControlVisible ? <NotificationCenter />: null}
+          {isControlVisible ? <ControlPanel />: null}
+          {isNotificationVisible ? <NotificationCenter />: null}
         </main>
       </body>
     </html>

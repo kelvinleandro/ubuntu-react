@@ -6,6 +6,7 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
+import { DateSection, DoNotDisturb, LastNotifications, NextEvents, NotificationSection, NotificationCenterWrapper } from './index.style';
 
 const UbuntuSwitch = styled((props: SwitchProps) => (
   <Switch focusVisibleClassName=".Mui-focusVisible" disableRipple {...props} />
@@ -76,30 +77,30 @@ const NotificationCenter = () => {
   const { dayOfWeek, formattedDate } = getFormattedDate();
   
   return (
-    <div className='w-[50%] rounded-xl absolute z-20 top-0 left-1/2 transform -translate-x-1/2 bg-white grid grid-cols-2 grid-rows-1'>
-      <div className='flex flex-col justify-end py-3 px-2'>
-        <div className='flex flex-col items-center justify-center'>
+    <NotificationCenterWrapper>
+      <NotificationSection>
+        <LastNotifications>
           <Notifications sx={{height:60, width:'auto', color:'#aeaeae'}} />
-          <p className='font-bold text-2xl text-[#aeaeae]'>No Notifications</p>
-        </div>
-        <div className='flex gap-3 items-center mt-28'>
+          <p>No Notifications</p>
+        </LastNotifications>
+        <DoNotDisturb>
           <p>Do Not Disturb</p>
           <UbuntuSwitch />
-        </div>
-      </div>
+        </DoNotDisturb>
+      </NotificationSection>
 
-      <div className='flex flex-col items-start justify-center py-3 px-2'>
-        <p className='font-bold text-lg text-[#9d9f8c]'>{dayOfWeek}</p>
-        <p className='font-bold text-xl text-[#9d9f8c]'>{formattedDate}</p>
+      <DateSection>
+        <p>{dayOfWeek}</p>
+        <p>{formattedDate}</p>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <DateCalendar views={['day']} />
         </LocalizationProvider>
-        <div className='bg-[#ededed] w-full flex flex-col flex-start p-1 rounded-md'>
-          <p className='text-[#9d9f8c]'>Tomorrow</p>
+        <NextEvents>
+          <p>Tomorrow</p>
           <p>No Events</p>
-        </div>
-      </div>
-    </div>
+        </NextEvents>
+      </DateSection>
+    </NotificationCenterWrapper>
   )
 }
 
