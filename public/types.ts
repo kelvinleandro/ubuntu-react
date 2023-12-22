@@ -1,6 +1,6 @@
 export type HandleFunction = () => void;
 
-export interface PanelProps {
-  handleNotificationVisibility: HandleFunction;
-  handleControlVisibility: HandleFunction;
+export interface ContextProps {
+  handleControlPanel: HandleFunction;
+  handleNotificationCenter: HandleFunction;
 }

@@ -2,10 +2,17 @@
 import '@/globals.css'
 import Panel from '@components/Panel'
 import Dock from '@components/Dock'
-import { useState } from 'react'
+import { useState, createContext  } from 'react'
 import ControlPanel from '@components/ControlPanel'
 import NotificationCenter from '@components/NotificationCenter'
-import { HandleFunction } from '@public/types'
+import { HandleFunction, ContextProps } from '@public/types'
+
+const defaultContext: ContextProps = {
+  handleControlPanel: () => {},
+  handleNotificationCenter: () => {},
+};
+
+export const Context = createContext<ContextProps>(defaultContext);
 
 export default function RootLayout({
   children,
@@ -32,16 +39,15 @@ export default function RootLayout({
         <title>Ubuntu React</title>
       </head>
       <body>
-        <Panel
-          handleControlVisibility={handleControlPanel}
-          handleNotificationVisibility={handleNotificationCenter}
-        />
-        <main className='relative h-[95vh] w-screen'>
-          <Dock />
-          {children}
-          {isControlVisible ? <ControlPanel />: null}
-          {isNotificationVisible ? <NotificationCenter />: null}
-        </main>
+        <Context.Provider value={{ handleControlPanel, handleNotificationCenter }}>
+          <Panel />
+        </Context.Provider>
+          <main className='relative h-[95vh] w-screen'>
+            <Dock />
+            {children}
+            {isControlVisible ? <ControlPanel />: null}
+            {isNotificationVisible ? <NotificationCenter />: null}
+          </main>
       </body>
     </html>
   )

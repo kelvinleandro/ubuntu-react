@@ -1,9 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { HandleFunction } from '@public/types';
+import React, { useEffect, useState, useContext } from 'react'
+import { Context } from '@/layout';
 
-const Clock = ({ handleNotificationVisibility }: { handleNotificationVisibility: HandleFunction }) => {
+const Clock = () => {
   const [dateTime, setDateTime] = useState("mon 0 00:00");
+  const { handleNotificationCenter } = useContext(Context);
 
   function getDateTime(): string {
     const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
@@ -22,7 +23,7 @@ const Clock = ({ handleNotificationVisibility }: { handleNotificationVisibility:
   }, []);
   
   return (
-    <p onClick={handleNotificationVisibility}>{dateTime}</p>
+    <p onClick={handleNotificationCenter}>{dateTime}</p>
   )
 }
 

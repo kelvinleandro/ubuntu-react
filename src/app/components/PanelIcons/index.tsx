@@ -1,11 +1,12 @@
-import React  from 'react'
+import React, {useContext}  from 'react'
 import {panelIcons} from '@public/data'
 import Image from 'next/image'
-import { HandleFunction } from '@public/types'
+import { Context } from '@/layout';
 
-const PanelIcons = ({ handleControlVisibility }: { handleControlVisibility: HandleFunction }) => {
+const PanelIcons = () => {
+  const { handleControlPanel } = useContext(Context);
   return (
-    <div className='flex gap-1' onClick={handleControlVisibility}>
+    <div className='flex gap-1' onClick={handleControlPanel}>
       {panelIcons.map((icon, index) => {
         return <Image 
           src={icon.img} 

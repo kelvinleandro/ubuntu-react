@@ -6,7 +6,7 @@ import PanelIcons from '../PanelIcons'
 import { useRouter } from 'next/navigation'
 import { PanelProps } from '@public/types'
 
-const Panel = ({ handleNotificationVisibility, handleControlVisibility }: PanelProps) => {
+const Panel = () => {
   const router = useRouter();
   const [onActivities, setOnActivities] = useState(false);
 
@@ -19,8 +19,8 @@ const Panel = ({ handleNotificationVisibility, handleControlVisibility }: PanelP
   return (
     <PanelWrapper>
       <p onClick={handleActivities}>Activities</p>
-      <Clock handleNotificationVisibility={handleNotificationVisibility} />
-      <PanelIcons handleControlVisibility={handleControlVisibility} />
+      <Clock />
+      <PanelIcons />
     </PanelWrapper>
   )
 }
