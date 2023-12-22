@@ -4,7 +4,6 @@ import Clock from '../Clock'
 import { PanelWrapper } from './index.style'
 import PanelIcons from '../PanelIcons'
 import { useRouter } from 'next/navigation'
-import { PanelProps } from '@public/types'
 
 const Panel = () => {
   const router = useRouter();
